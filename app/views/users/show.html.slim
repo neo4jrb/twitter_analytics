@@ -1,0 +1,21 @@
+table
+  - %w{id screen_name name description location profile_image_url utc_offset time_zone lang followers_count verified? geo_enabled?}.each do |property|
+    tr
+      th = property
+      td = @user.send(property)
+
+p id="notice"
+  = notice
+
+= link_to 'Edit', edit_user_path(@user)
+|  | 
+= link_to 'Back', users_path
+
+h1 Related hashtags:
+
+ul
+  - @user.top_associated_hash_tag_counts(10).each do |hash_tag, count|
+    li
+      = link_to hash_tag.text, hash_tag
+      | (#{count})
+

@@ -30,6 +30,12 @@ gem 'neo4apis-twitter'
 
 gem 'neo4j'
 
+gem 'slim-rails'
+
+group :development do
+  gem 'pry'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,0 +1,22 @@
+p id="notice" = notice
+
+= link_to 'Edit', edit_hash_tag_path(@hash_tag)
+|  | 
+= link_to 'Back', hash_tags_path
+
+h1 Related hashtags:
+
+ul
+- @hash_tag.top_associated_hash_tag_counts(10).each do |hash_tag, count|
+  li
+    = link_to hash_tag.text, hash_tag
+    | (#{count})
+
+h1 Related users:
+
+ul
+  - @hash_tag.top_associated_users(10).each do |user, count|
+    li
+      = link_to user.screen_name, user
+      | (#{count})
+

@@ -6,4 +6,5 @@ class Tweet
   property :text
 
   has_many :out, :hash_tags, type: :has_hashtag
+  has_one :in, :user, origin: :tweets
 end

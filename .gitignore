@@ -16,4 +16,4 @@
 /tmp
 
 /config/twitter.yml
-
+/db/neo4j
