@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Edit', edit_hash_tag_path(@hash_tag) %> |
+<%= link_to 'Back', hash_tags_path %>
+
+<h1>Related hashtags:</h1>
+<ul>
+<% @hash_tag.similar_hash_tag_counts(10).each do |hash_tag, count| %>
+  <li><%= link_to hash_tag.text, hash_tag %> (<%= count %>)</li>
+<% end %>
+</ul>

@@ -1,0 +1,17 @@
+<%= form_for(@hash_tag) do |f| %>
+  <% if @hash_tag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hash_tag.errors.count, "error") %> prohibited this hash_tag from being saved:</h2>
+
+      <ul>
+      <% @hash_tag.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
