@@ -5,6 +5,16 @@ class HashTagsController < ApplicationController
   # GET /hash_tags.json
   def index
     @hash_tags = HashTag.all
+    @top_with_tweet_counts = HashTag.top_with_tweet_counts(20)
+  end
+
+  def foo
+    respond_to do |format|
+      format.html {}
+      format.json do
+        render json: User.as(:user).limit(100).tweets(:tweet, :r).query.return(:user, :r, :tweet).to_graph_json
+      end
+    end
   end
 
   # GET /hash_tags/1

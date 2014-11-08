@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   resources :users
 
-  resources :hash_tags
+  resources :hash_tags do
+    collection do
+      get :foo
+    end
+  end
+
+  root 'home#index'
+  get '/home/tweets_per_minute' => 'home#tweets_per_minute'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

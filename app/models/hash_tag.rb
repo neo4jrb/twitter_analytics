@@ -7,6 +7,14 @@ class HashTag
   has_many :in, :tweets, origin: :hash_tags
   include HasTweets
 
+  def self.top_with_tweet_counts(limit = nil)
+    query = as(:hash_tag).tweets(:tweet).order("COUNT(tweet) DESC")
+
+    query = query.limit(limit) if limit
+
+    Hash[*query.pluck(:hash_tag, 'COUNT(tweet)').flatten]
+  end
+
 end
 
 

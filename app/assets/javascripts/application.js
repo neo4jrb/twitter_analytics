@@ -13,4 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require bootstrap/bootstrap
+//= require alchemy.js/vendor
+//= require alchemy.js/alchemy
+//= require highcharts/highcharts
+//= require chartkick

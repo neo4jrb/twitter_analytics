@@ -29,6 +29,9 @@ gem 'spring',        group: :development
 gem 'neo4apis-twitter'
 
 gem 'neo4j'
+gem 'neo4j-core', path: '/Users/brian/github/neo4jrb/neo4j-core'
+
+gem 'groupdate'
 
 gem 'slim-rails'
 

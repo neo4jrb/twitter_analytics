@@ -1,0 +1,16 @@
+h1 Listing hash_tags
+
+table
+  thead
+    tr
+      th colspan="3"
+
+  tbody
+    - @top_with_tweet_counts.each do |hash_tag, count|
+      tr
+        td = link_to hash_tag.text, hash_tag
+        td = count
+
+br
+
+= link_to 'New Hash tag', new_hash_tag_path

@@ -1,0 +1,31 @@
+div class="alchemy" id="alchemy"
+
+javascript:
+  var config = {
+    cluster: true,
+    dataSource: '/hash_tags/foo.json',
+    graphHeight: function () { return(550) },
+    graphWidth: function () { return(1000) },
+    
+    linkDistance: function(){ return 40; },
+
+    nodeTypes: {"node_type": ["Tweet", "User"]},
+    nodeCaption: function(node){ return node.screen_name; },
+
+
+    showStats: true,
+    nodeStats: true,
+
+    showFilters: true,
+    nodeFilters: true,
+
+    captionToggle: true,
+    edgesToggle: true,
+    nodesToggle: true,
+    toggleRootNotes: false,
+
+    zoomControls: true
+  };
+
+  alchemy = new Alchemy(config)
+
