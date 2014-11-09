@@ -1,0 +1,32 @@
+.container-fluid
+  .row
+    .col-sm-3#left-panel
+      .row
+        .col-sm-12
+          = render 'dashboard/panel'
+      .row
+        .col-sm-12
+          = render 'dashboard/panel'
+    .col-sm-6#main-panel
+      = render 'dashboard/panel'
+    .col-sm-3#right-panel
+      .row
+        .col-sm-12
+          = render 'dashboard/panel'
+      .row
+        .col-sm-12
+          = render 'dashboard/panel'
+  .row#bottom-row-1
+    .col-sm-4
+      = render 'dashboard/panel'
+    .col-sm-4
+      = render 'dashboard/panel'
+    .col-sm-4
+      = render 'dashboard/panel'
+  .row#bottom-row-2
+    .col-sm-4
+      = render 'dashboard/panel'
+    .col-sm-4
+      = render 'dashboard/panel'
+    .col-sm-4
+      = render 'dashboard/panel'

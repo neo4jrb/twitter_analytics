@@ -27,6 +27,7 @@ body.application hr {
 
 
 
+ /* MODIFIED FROM ORIGINAL!!!! */
 .navbar-inverse {
   background-color: #3d4a57;
   border-color: #333;
@@ -37,13 +38,13 @@ body.application hr {
   text-decoration: none;
 }
 
-.chart-wrapper {
+.panel-wrapper {
   background: #fff;
   border: 1px solid #e2e2e2;
   border-radius: 3px;
   margin-bottom: 10px;
 }
-.chart-wrapper .chart-title {
+.panel-wrapper .title {
   border-bottom: 1px solid #d7d7d7;
   color: #666;
   font-size: 14px;
@@ -51,14 +52,14 @@ body.application hr {
   padding: 7px 10px 4px;
 }
 
-.chart-wrapper .chart-stage {
+.panel-wrapper .stage {
   /*min-height: 240px;*/
   overflow: hidden;
   padding: 5px 10px;
   position: relative;
 }
 
-.chart-wrapper .chart-notes {
+.panel-wrapper .notes {
   background: #fbfbfb;
   border-top: 1px solid #e2e2e2;
   color: #808080;

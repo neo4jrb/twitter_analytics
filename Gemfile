@@ -26,7 +26,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-gem 'neo4apis-twitter'
+gem 'neo4apis-twitter', '~> 0.7.0'
 
 gem 'neo4j'
 gem 'neo4j-core', path: '/Users/brian/github/neo4jrb/neo4j-core'
