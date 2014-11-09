@@ -42,7 +42,7 @@ ready = ->
 
   place_chart 'Top Retweeters', 'Bar', 'left-panel-stage-2', 'top_retweeters', onclick: user_click_fn
 
-  place_chart 'Tweets per Minute', 'Column', 'main-panel-stage', 'tweets_per_minute',
+  place_chart 'Original Tweets Over Time', 'Column', 'main-panel-stage', 'original_tweets_over_time',
     library:
       xAxis:
         labels:

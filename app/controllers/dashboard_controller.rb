@@ -28,34 +28,10 @@ class DashboardController < ApplicationController
     Hash[*query.order('COUNT(retweet) DESC').limit(5).pluck('user.screen_name, COUNT(retweet)').flatten]
   end
 
-  def tweets_per_minute
+  def original_tweets_over_time
     query_proxy = original_tweets
 
-    max = query_proxy.pluck("MAX(tweet.created_at)").first
-    min = query_proxy.pluck("MIN(tweet.created_at)").first
-
-    if min && max
-      max = Tweet.parse_twitter_datetime(max)
-      min = Tweet.parse_twitter_datetime(min)
-
-      # Number of seconds
-      grouping = case (max.to_i - min.to_i)
-                 when (0..1.minute)
-                   :second
-                 when (1.minute..3.hours)
-                   :minute
-                 when (3.hours..3.days)
-                   :hour
-                 else
-                   :day
-                 end
-
-      max - min
-
-      Tweet.counts_by(:created_at, grouping, query_proxy)
-    else
-      {}
-    end
+    Tweet.counts_by(:created_at, time_grouping(query_proxy), query_proxy)
   end
 
   def most_favorited_tweets
@@ -68,6 +44,26 @@ class DashboardController < ApplicationController
 
 
 
+
+  def time_grouping(query_proxy = Tweet.as(:tweet))
+    max = query_proxy.pluck("MAX(tweet.created_at)").first
+    min = query_proxy.pluck("MIN(tweet.created_at)").first
+
+    max = Tweet.parse_twitter_datetime(max)
+    min = Tweet.parse_twitter_datetime(min)
+
+    # Number of seconds
+    case (max.to_i - min.to_i)
+    when (0..1.minute)
+      :second
+    when (1.minute..3.hours)
+      :minute
+    when (3.hours..3.days)
+      :hour
+    else
+      :day
+    end
+  end
 
   def original_tweets
     Tweet.as(:tweet).where('NOT(()-[:retweets]->tweet)')
