@@ -37,6 +37,8 @@ gem 'slim-rails'
 
 gem 'chartkick'
 
+gem 'thor-rails'
+
 group :development do
   gem 'pry'
 end

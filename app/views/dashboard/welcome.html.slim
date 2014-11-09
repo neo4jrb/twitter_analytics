@@ -1,0 +1,17 @@
+h1 You don't have any tweets!
+
+| If you want to see some pretty graphs, you need to download some data from twitter.  No problem!  Try some of these commands:
+
+pre > neo4apis twitter filter QUERY --import-retweets --import-hashtags --import-user-mentions
+
+pre > neo4apis twitter search QUERY NUMBER_OF_TWEETS --import-retweets --import-hashtags --import-user-mentions
+
+| To get help with these commands, try:
+
+pre > neo4apis help twitter
+pre > neo4apis help filter
+pre > neo4apis help search
+
+| To clear your database, run:
+
+pre thor neo4j:clear_database

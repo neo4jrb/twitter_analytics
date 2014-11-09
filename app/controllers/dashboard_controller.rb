@@ -1,5 +1,6 @@
 class DashboardController < ApplicationController
   def index
+    render :welcome if Tweet.count.zero?
   end
 
   PANELS = {
