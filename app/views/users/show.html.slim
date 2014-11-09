@@ -2,7 +2,11 @@ table
   - %w{id screen_name name description location profile_image_url utc_offset time_zone lang followers_count verified? geo_enabled?}.each do |property|
     tr
       th = property
-      td = @user.send(property)
+      td
+        - if (value = @user.send(property)).to_s.match(/^http:.*(jpe?g|gif|png)$/)
+          = image_tag value
+        - else
+          = value
 
 p id="notice"
   = notice
