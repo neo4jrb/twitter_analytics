@@ -35,6 +35,8 @@ gem 'groupdate'
 
 gem 'slim-rails'
 
+gem 'chartkick'
+
 group :development do
   gem 'pry'
 end

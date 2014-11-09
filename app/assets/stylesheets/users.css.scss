@@ -1,0 +1,17 @@
+#users-show {
+  #info, #charts {
+    display: inline-block
+  }
+
+  #info {
+    width: 50%;
+  }
+
+  #charts > div {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+  }
+
+}
+

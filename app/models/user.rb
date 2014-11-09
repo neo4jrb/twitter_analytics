@@ -19,5 +19,13 @@ class User
   property :verified?
   property :geo_enabled?
 
+  def original_tweets
+    tweets(:tweet).where('NOT(tweet-[:retweets]->())')
+  end
+
+  def retweets
+    tweets(:tweet).where('tweet-[:retweets]->()')
+  end
+
 end
 
