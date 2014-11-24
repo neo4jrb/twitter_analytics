@@ -14,6 +14,19 @@ GIT
       os
       zip
 
+GIT
+  remote: git://github.com/neo4jrb/neo4j.git
+  revision: c0905bf7a56466c0c8e65ae6008e73e6b3c89478
+  branch: master
+  specs:
+    neo4j (3.0.4)
+      active_attr (~> 0.8)
+      activemodel (~> 4)
+      activesupport (~> 4)
+      neo4j-core (~> 3.0.8)
+      orm_adapter (~> 0.5.0)
+      railties (~> 4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -104,13 +117,6 @@ GEM
     neo4apis-twitter (0.7.0)
       neo4apis (~> 0.4.0)
       twitter (~> 5.12.0)
-    neo4j (3.0.4)
-      active_attr (~> 0.8)
-      activemodel (~> 4)
-      activesupport (~> 4)
-      neo4j-core (~> 3.0.8)
-      orm_adapter (~> 0.5.0)
-      railties (~> 4)
     net-http-persistent (2.9.4)
     orm_adapter (0.5.0)
     os (0.9.6)
@@ -206,7 +212,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   neo4apis-twitter (~> 0.7.0)
-  neo4j
+  neo4j!
   neo4j-core!
   pry
   rails (= 4.1.7)
