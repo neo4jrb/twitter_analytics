@@ -29,7 +29,7 @@ gem 'spring',        group: :development
 gem 'neo4apis-twitter', '~> 0.7.0'
 
 gem 'neo4j'
-gem 'neo4j-core', path: '/Users/brian/github/neo4jrb/neo4j-core'
+gem 'neo4j-core', github: 'neo4jrb/neo4j', branch: 'master'
 
 gem 'groupdate'
 
