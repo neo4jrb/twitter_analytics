@@ -6,12 +6,10 @@ class Tweet
   property :text
   property :created_at
 
+  property :oembed_html_cache
+
   has_many :out, :hash_tags, type: :has_hashtag
   has_one :in, :user, origin: :tweets
-
-  def created_at
-    parse_twitter_datetime(read_attribute(:created_at))
-  end
 
   # Not safe from injection
   def self.counts_by(field, time_period, tweet_query_proxy = Tweet)
@@ -34,8 +32,13 @@ class Tweet
     Hash[*tweet_query_proxy.query_as(:tweet).order('datetime_string').pluck("#{return_string} AS datetime_string", 'COUNT(*)').flatten]
   end
 
-  def self.parse_twitter_datetime(string)
-    DateTime.strptime(string, '%Y-%m-%d %H:%M:%S %z')
+  def oembed_html
+    return self.oembed_html_cache if self.oembed_html_cache.present?
+
+    TWITTER_REST_CLIENT.oembed(self.id).html.tap do |html|
+      self.oembed_html_cache = html
+      self.save
+    end
   end
 
 end

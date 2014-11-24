@@ -10,6 +10,7 @@ class TweetsController < ApplicationController
   # GET /tweets/1
   # GET /tweets/1.json
   def show
+    @tweet = Tweet.where(id: params[:id].to_i).first
   end
 
   # GET /tweets/new
