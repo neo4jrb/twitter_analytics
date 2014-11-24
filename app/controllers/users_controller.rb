@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.as(:user).where('user.followers_count IS NOT NULL').order(followers_count: :desc).limit(10)
   end
 
   # GET /users/1

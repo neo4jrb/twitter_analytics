@@ -1,0 +1,8 @@
+h1 Top Users
+
+div.list-group
+  - @users.each do |user|
+    = link_to(user, class: 'list-group-item') do
+      span.badge #{number_with_delimiter(user.followers_count)} followers
+      = user.screen_name
+

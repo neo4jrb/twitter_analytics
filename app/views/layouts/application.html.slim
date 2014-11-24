@@ -9,7 +9,12 @@ html
     = csrf_meta_tags
 
   body id="#{controller_name}-#{action_name}"
-    = link_to 'Home', '/' unless controller_name == 'dashboard' and action_name == 'index'
+    nav.navbar.navbar-default role="navigation"
+      ul.nav.navbar-nav
+        li = link_to 'Home', '/' unless controller_name == 'dashboard' and action_name == 'index'
+        li = link_to 'Users', users_path
+        li = link_to 'Tweets', tweets_path
+        li = link_to 'Hashtags', hash_tags_path
     = yield
 
   = javascript_include_tag 'application', 'data-turbolinks-track' => true

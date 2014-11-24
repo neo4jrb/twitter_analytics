@@ -1,19 +1,19 @@
-h1 Listing tweets
+h1 Top Tweets
 
-table
-  thead
-    tr
-      th
-      th
-      th
+.container
+  - @tweets.each do |tweet|
+    .tweet.col-md-4.col-sm-6.col-xs-12
+      = tweet.oembed_html.html_safe
 
-  tbody
-    - @tweets.each do |tweet|
-      tr
-        td = link_to 'Show', tweet
-        td = link_to 'Edit', edit_tweet_path(tweet)
-        td = link_to 'Destroy', tweet, data: {:confirm => 'Are you sure?'}, :method => :delete
+      = link_to('Tweet Analytics', tweet, class: 'btn btn-primary')
 
-br
+scss:
 
-= link_to 'New Tweet', new_tweet_path
+  .tweet {
+    padding: 1em;
+
+    .btn {
+      width: 100%;
+    }
+  }
+
