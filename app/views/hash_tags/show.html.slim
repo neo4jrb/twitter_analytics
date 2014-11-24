@@ -1,18 +1,29 @@
 p id="notice" = notice
 
-h1 Related hashtags:
+.container
+  #top-tweets.col-lg-6
+    h1 Top tweets:
 
-ul
-- @hash_tag.top_associated_hash_tag_counts(10).each do |hash_tag, count|
-  li
-    = link_to hash_tag.text, hash_tag
-    | (#{count})
+    - @hash_tag.tweets(:tweet).order('(tweet.favorite_count + tweet.retweet_count) DESC').limit(5).each do |tweet|
+      = tweet.oembed_html.html_safe
+      hr
 
-h1 Related users:
+  #related-links.col-lg-6
+    #related-hashtags
+      h1 Related hashtags:
 
-ul
-  - @hash_tag.top_associated_users(10).each do |user, count|
-    li
-      = link_to user.screen_name, user
-      | (#{count})
+      div.list-group
+      - @hash_tag.top_associated_hash_tag_counts(10).each do |hash_tag, count|
+        = link_to(hash_tag, class: 'list-group-item') do
+          span.badge = count
+          = hash_tag.text
+
+    #related-users
+      h1 Related users:
+
+      div.list-group
+        - @hash_tag.top_associated_users(10).each do |user, count|
+          = link_to(user, class: 'list-group-item') do
+            span.badge = count
+            = user.screen_name
 

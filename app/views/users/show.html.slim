@@ -1,29 +1,30 @@
 p id="notice"
   = notice
 
-#info
-  dl.dl-horizontal
-    - %w{id screen_name name description location profile_image_url utc_offset time_zone lang followers_count verified? geo_enabled?}.each do |property|
-      dt = property
-      dd
-        - if (value = @user.send(property)).to_s.match(/^http:.*(jpe?g|gif|png)$/)
-          = image_tag value
-        - else
-          = value
-  = link_to "#{@user.screen_name} on Twitter", "https://twitter.com/#{@user.screen_name}"
+.container
+  #info.col-lg-6
+    dl.dl-horizontal
+      - %w{id screen_name name description location profile_image_url utc_offset time_zone lang followers_count verified? geo_enabled?}.each do |property|
+        dt = property
+        dd
+          - if (value = @user.send(property)).to_s.match(/^http:.*(jpe?g|gif|png)$/)
+            = image_tag value
+          - else
+            = value
+    = link_to "#{@user.screen_name} on Twitter", "https://twitter.com/#{@user.screen_name}"
 
-#charts
-  = pie_chart({Original: @user.original_tweets.count, Retweets: @user.retweets.count}, height: '200px', width: '200px', content_for: :charts_js)
+  #charts.col-lg-6
+    = pie_chart({Original: @user.original_tweets.count, Retweets: @user.retweets.count}, height: '200px', width: '200px', content_for: :charts_js)
 
-  - data = Hash[*@user.tweets(:tweet).hash_tags(:hash_tag).order('count(tweet) DESC').limit(5).pluck('hash_tag.text, count(tweet)').flatten]
-  = column_chart(data, height: '200px', width: '200px', content_for: :charts_js)
+    - data = Hash[*@user.tweets(:tweet).hash_tags(:hash_tag).order('count(tweet) DESC').limit(5).pluck('hash_tag.text, count(tweet)').flatten]
+    = column_chart(data, height: '200px', width: '200px', content_for: :charts_js)
 
-#related-hashtags
-  h1 Related hashtags:
+  #related-hashtags.col-lg-12
+    h1 Related hashtags:
 
-  ul
-    - @user.top_associated_hash_tag_counts(10).each do |hash_tag, count|
-      li
-        = link_to hash_tag.text, hash_tag
-        | (#{count})
+    div.list-group
+      - @user.top_associated_hash_tag_counts(10).each do |hash_tag, count|
+        = link_to(hash_tag, class: 'list-group-item') do
+          span.badge = count
+          = hash_tag.text
 
