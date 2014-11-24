@@ -49,8 +49,8 @@ class DashboardController < ApplicationController
     max = query_proxy.pluck("MAX(tweet.created_at)").first
     min = query_proxy.pluck("MIN(tweet.created_at)").first
 
-    max = Tweet.parse_twitter_datetime(max)
-    min = Tweet.parse_twitter_datetime(min)
+    max = DateTime.strptime(max, '%Y-%m-%d %H:%M:%S %z')
+    min = DateTime.strptime(min, '%Y-%m-%d %H:%M:%S %z')
 
     # Number of seconds
     case (max.to_i - min.to_i)
