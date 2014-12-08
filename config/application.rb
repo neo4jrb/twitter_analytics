@@ -20,5 +20,7 @@ module TwitterAnalytics
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    Rails.application.config.assets.precompile += %w( hash_tags.js sigma.js )
   end
 end

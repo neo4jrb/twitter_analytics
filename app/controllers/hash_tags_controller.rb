@@ -71,6 +71,22 @@ class HashTagsController < ApplicationController
     end
   end
 
+
+  def explore
+    hash_tag_string = params[:hash_tag].tr('-', ' ') if params[:hash_tag]
+    @hash_tag = HashTag.where(text: hash_tag_string).first
+    if @hash_tag
+      respond_to do |format|
+        format.json do
+          render :json => @hash_tag.local_graph_to_sigma_json
+        end
+      end
+    else
+      @top_hash_tag_counts = Hash[*current_user.notes(:note).user_hash_tags(:hash_tag).order("COUNT(note) DESC").limit(20).pluck(:hash_tag, "COUNT(note)").flatten]
+    end
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_hash_tag

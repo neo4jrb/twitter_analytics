@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :hash_tags do
     collection do
       get :foo
+      get 'explore/:hash_tag.:format' => 'hash_tags#explore'
     end
   end
 

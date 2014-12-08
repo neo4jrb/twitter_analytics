@@ -1,5 +1,8 @@
 p id="notice" = notice
 
+javascript:
+  var hash_tag = '#{params[:id]}';
+
 .container
   #top-tweets.col-lg-6
     h1 Top tweets:
@@ -12,11 +15,25 @@ p id="notice" = notice
     #related-hashtags
       h1 Related hashtags:
 
-      div.list-group
-      - @hash_tag.top_associated_hash_tag_counts(10).each do |hash_tag, count|
-        = link_to(hash_tag, class: 'list-group-item') do
-          span.badge = count
-          = hash_tag.text
+      style
+        |
+          #graph-container {
+            top: -25px;
+            left: 0;
+            right: 0;
+            height: 300px;
+            position: relative;
+            margin: 0 auto 3em;
+          }
+
+      #graph-container
+
+      #hash_tag_explorer_hash_tag_list style="display: none"
+        div.list-group
+        - @hash_tag.top_associated_hash_tag_counts(10).each do |hash_tag, count|
+          = link_to(hash_tag, class: 'list-group-item') do
+            span.badge = count
+            = hash_tag.text
 
     #related-users
       h1 Related users:
@@ -26,4 +43,6 @@ p id="notice" = notice
           = link_to(user, class: 'list-group-item') do
             span.badge = count
             = user.screen_name
+
+= javascript_include_tag "sigma"
 
