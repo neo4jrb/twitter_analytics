@@ -24,12 +24,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+#gem 'spring',        group: :development
 
 gem 'neo4apis-twitter', '~> 0.7.0'
 
-gem 'neo4j', github: 'neo4jrb/neo4j', branch: 'master'
-gem 'neo4j-core', github: 'neo4jrb/neo4j-core', branch: 'master'
+gem 'neo4j', '~> 3.0.0'
+gem 'neo4j-core', '~> 3.0.0'
 
 gem 'groupdate'
 
@@ -41,6 +41,7 @@ gem 'thor-rails'
 
 group :development do
   gem 'pry'
+  gem 'pry-remote'
 end
 
 # Use ActiveModel has_secure_password
