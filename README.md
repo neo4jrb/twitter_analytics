@@ -1,6 +1,7 @@
 Analyze your tweets with neo4j!
 
-== Usage:
+Usage:
+======
 
  * Check out github repo
  * Run `bundle`
@@ -15,7 +16,8 @@ Analyze your tweets with neo4j!
  * Start the rails app with `rails s`
  * Visit the app
 
-== What you get:
+What you get:
+=============
 
  * Pretty metrics such as:
    * Top Tweeters
@@ -27,7 +29,8 @@ Analyze your tweets with neo4j!
  * Graph visualization of hashtags
  * Embedded tweets, where possible
 
-== How to help
+How to help:
+===========
 
 Feedback!  What metrics would you like to see?  What metrics do you think would be useful for everybody?
 
