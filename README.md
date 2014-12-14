@@ -5,6 +5,8 @@ Usage:
 
  * Check out github repo
  * Run `bundle`
+ * Run `rake neo4j:install[neo4j-2.1.6,development]` (see neo4j's [release notes](http://neo4j.com/release-notes/) for the current version number)
+ * Run `rake neo4j:start`
  * Run one of the following commands (the first will continuously stream until you cancel with `ctrl-c`):
 
 ```ruby
