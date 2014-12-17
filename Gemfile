@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.7'
+gem 'rails', '~> 4.1.7'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -28,8 +28,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'neo4apis-twitter', '~> 0.7.0'
 
-gem 'neo4j', '~> 3.0.0'
-gem 'neo4j-core', '~> 3.0.0'
+gem 'neo4j', '~> 4.0.0.rc.3'
+gem 'neo4j-core', '~> 3.1.0'
 
 gem 'groupdate'
 
