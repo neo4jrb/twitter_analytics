@@ -18,3 +18,14 @@
 //= require alchemy.js/alchemy
 //= require highcharts/highcharts
 //= require chartkick
+
+$(document).on("page:fetch", startSpinner);
+$(document).on("page:receive", stopSpinner);
+
+var startSpinner = function () { 
+  $('.spinner-container').show();
+}
+
+var stopSpinner = function () { 
+  $('.spinner-container').hide();
+}

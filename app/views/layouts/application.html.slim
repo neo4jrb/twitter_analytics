@@ -17,6 +17,9 @@ html
         li = link_to 'Hashtags', hash_tags_path
     = yield
 
+    .spinner-container
+      .spinner
+
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = action_and_controller_javascript_include_tag
   = yield :charts_js

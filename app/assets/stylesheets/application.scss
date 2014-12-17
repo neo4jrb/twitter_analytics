@@ -16,3 +16,35 @@
 //= require alchemy.js/alchemy
  *= require_self
  */
+
+@-webkit-keyframes play {
+   from { background-position: 0     0px; }
+     to { background-position: 0 -2090px; }
+}
+
+
+.spinner-container {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: #FFF;
+  opacity: 0.8;
+}
+
+.spinner {
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 50%; /* Rounds out the halo */
+    opacity: .7; /* Some subtle opacity to help blend with variable background colors */
+
+    position: absolute;
+    top: 200px;
+    margin-left: -55px;
+    left: 50%;
+    height: 110px; width: 110px; /* Pixel size of the GIF you download */
+    background-image: image-url('spinner.png');
+
+    -webkit-animation: play .8s steps(19) infinite;
+}
