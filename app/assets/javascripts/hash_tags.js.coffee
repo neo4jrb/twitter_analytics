@@ -61,7 +61,7 @@ ready = ->
         $("#hash_tag_explorer_hash_tag_list").css "margin-top", "auto"
         $("#hash_tag_explorer_hash_tag_list").show()
         $("#graph-container").hide()
-    ), 2000
+    ), 10000
 
     renderFromJson = (path) ->
       sigma.parsers.json path, s, ->
