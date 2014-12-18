@@ -7,6 +7,7 @@ Usage:
  * Run `bundle`
  * Run `rake neo4j:install[neo4j-2.1.6,development]` (see neo4j's [release notes](http://neo4j.com/release-notes/) for the current version number)
  * Run `rake neo4j:start`
+ * Create your `config/twitter.yml` file (see `config/twitter.yml.example`)
  * Run one of the following commands (the first will continuously stream until you cancel with `ctrl-c`):
 
 ```ruby
