@@ -32,6 +32,10 @@ class Tweet
     Hash[*tweet_query_proxy.query_as(:tweet).order('datetime_string').pluck("#{return_string} AS datetime_string", 'COUNT(*)').flatten]
   end
 
+  def self.original
+    all.as(:tweet).where('NOT(tweet<-[:retweets]-())')
+  end
+
   def oembed_html
     return self.oembed_html_cache if self.oembed_html_cache.present?
 
